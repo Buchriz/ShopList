@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ListFragment"
+    android:orientation="vertical"
+    android:background="#F1BC6D"
+    android:layoutDirection="ltr"
+    android:id="@+id/fr"
+    >
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        >
+
+
+        <TableLayout
+            android:id="@+id/tableLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/table_corners"
+            >
+
+            <TableRow
+                android:id="@+id/firstRow"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                >
+
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="25dp"
+                    android:text="נעשה/ לא נעשה"
+                    android:textColor="@color/black"
+                    android:textAlignment="center"
+                    android:textSize="18dp"
+                    android:background="@drawable/textview_corners"
+                    />
+
+
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="25dp"
+                    android:text="שם המוצר"
+                    android:textColor="@color/black"
+                    android:textAlignment="center"
+                    android:textSize="18dp"
+                    android:background="@drawable/textview_corners"
+                    />
+            </TableRow>
+
+        </TableLayout>
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/tvRemove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="לא נוספו מוצרים..."
+        android:layout_gravity="center"
+        android:layout_marginBottom="70dp"
+        android:textColor="#6C6A6A"
+        android:textSize="30dp"
+
+        />
+
+
+
+</FrameLayout>

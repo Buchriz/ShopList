@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layoutDirection="ltr"
+    tools:context=".AddItemFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="שם המוצר"
+            android:gravity="start"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:layout_marginRight="10dp"
+            />
+
+
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/white"
+            />
+
+        <Button
+            android:id="@+id/btnAddToList"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/round_plus_button"
+            android:text="+"
+            android:textSize="30dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/black"
+            />
+    </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/grey"
+    tools:context=".SecondActivity"
+    android:layoutDirection="ltr"
+    >
+
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:text="Back"
+        android:textSize="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:textAllCaps="false"
+        android:layout_gravity="start"
+        android:background="@color/transparent"
+        />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:text="אודות החברה"
+        android:gravity="center"
+        android:textSize="36dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="40dp"
+        />
+
+
+
+    <TextView
+        android:layout_width="320dp"
+        android:layout_height="300dp"
+        android:text="הצטרפו אלינו למסע שלנו כדי להפוך את טיולי הקניות שלכם למאורגנים ומהנים יותר. תודה שבחרת ב-'Buchriz Shopping' כשותף לקניות שלך."
+        android:layout_gravity="center"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:background="#4C4A4A"
+        android:layout_marginTop="60dp"
+        />
+
+</LinearLayout>
