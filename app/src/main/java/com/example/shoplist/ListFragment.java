@@ -1,5 +1,6 @@
 package com.example.shoplist;
 
+import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -24,39 +25,13 @@ import java.util.List;
 public class ListFragment extends Fragment {
 
     private View rootView;
-
     private TableLayout tableLayout;
     private String getName;
-    private TextView tvRemove;
-    private FrameLayout fr;
-
     public static List<String> nameList = new LinkedList<>();
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    private String mParam1;
-    private String mParam2;
-
-    public ListFragment() {
-    }
-
-    public static ListFragment newInstance(String param1, String param2) {
-        ListFragment fragment = new ListFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-
     }
 
     @Override
@@ -69,37 +44,45 @@ public class ListFragment extends Fragment {
 
     private void initView()
     {
-        fr = rootView.findViewById(R.id.fr);
         tableLayout = rootView.findViewById(R.id.tableLayout);
-        tvRemove = rootView.findViewById(R.id.tvRemove);
 
         Bundle bundle = this.getArguments();
         if (bundle != null)
         {
             getName = bundle.getString("name");
             nameList.add(getName);
-            fr.removeView(tvRemove);
-            addTableRow();
         }
+        addTableRow();
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     private void addTableRow()
     {
         tableLayout.setBackground(getResources().getDrawable(R.drawable.table_corners));
         for (int i = 0; i < nameList.size(); i++)
         {
             TableRow row = new TableRow(requireActivity());
-            row.setLayoutParams(new TableRow.LayoutParams(-2, 100));
-            row.setBackground(getResources().getDrawable(R.drawable.textview_corners));
+            TableRow.LayoutParams rowp = new TableRow.LayoutParams(-2, -2);
+            row.setLayoutParams(rowp);
+            row.setBackground(getResources().getDrawable(R.drawable.table_corners));
 
             TextView tvName = new TextView(requireActivity());
-            tvName.setLayoutParams(new TableRow.LayoutParams(-2, 100));
+            TableRow.LayoutParams ll = new TableRow.LayoutParams(-2, -2);
+            ll.setMargins(0,1,0,0);
+            tvName.setLayoutParams(ll);
 
-            tvName.setText(nameList.get(i));
+            if (nameList.get(i).length() > 10)
+            {
+                tvName.setText(DownRow(nameList.get(i)));
+            }
+            else
+            {
+                tvName.setText(nameList.get(i));
+            }
             tvName.setTextColor(Color.BLACK);
-            tvName.setTextSize(19);
+            tvName.setTextSize(26);
             tvName.setGravity(Gravity.CENTER);
-            tvName.setBackground(getResources().getDrawable(R.drawable.textview_corners));
+            tvName.setBackground(getResources().getDrawable(R.drawable.table_corners));
 
             CheckBox cb = new CheckBox(requireActivity());
             TableRow.LayoutParams cbParams = new TableRow.LayoutParams(-2, 100);
@@ -108,7 +91,8 @@ public class ListFragment extends Fragment {
 
             cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+                {
                     if (isChecked)
                     {
                         tvName.setTextColor(ContextCompat.getColor(requireActivity(), R.color.blue));
@@ -120,9 +104,28 @@ public class ListFragment extends Fragment {
                 }
             });
 
+
             row.addView(cb);
             row.addView(tvName);
             tableLayout.addView(row);
         }
+    }
+
+    public String DownRow(String name)
+    {
+        int index = 0;
+        String str = "";
+
+        for (int i = 0; i < name.length(); i++)
+        {
+            index++;
+            str += name.charAt(i);
+            if (index >= 10)
+            {
+                str += "\n";
+                index = 0;
+            }
+        }
+        return str;
     }
 }
