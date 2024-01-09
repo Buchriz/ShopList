@@ -30,6 +30,8 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:background="@color/white"
+            android:textColor="@color/black"
+            android:maxLength="20"
             />
 
         <Button
